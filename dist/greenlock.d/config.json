@@ -1,0 +1,16 @@
+{
+    "sites": [
+        {
+            "subject": "what-can.be",
+            "altnames": [
+                "what-can.be"
+            ]
+        },
+        {
+            "subject": "www.what-can.be",
+            "altnames": [
+                "www.what-can.be"
+            ]
+        }
+    ]
+}

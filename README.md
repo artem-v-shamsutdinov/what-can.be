@@ -1,2 +1,2 @@
 # what-can.be
-Unified hosting for MTABS, PTW, BD, TB &amp; DI sites.
+Unified hosting for MTABS, PTW, DIN, BD and TB sites.
