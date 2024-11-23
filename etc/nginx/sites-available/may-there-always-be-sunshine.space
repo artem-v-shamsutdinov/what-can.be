@@ -17,7 +17,7 @@ server {
                 expires 7d;
         }
 
-        location ~*  \.(jpg|jpeg|png|gif|ico|css|js|webp|mp4|woff|woff2|ttf)$ {
+        location ~*  \.(avif|css|gif|ico|jpg|jpeg|js|png|mp4|ttf|webp|woff|woff2)$ {
                 expires 365d;
         }
 
