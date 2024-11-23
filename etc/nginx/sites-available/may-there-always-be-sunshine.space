@@ -1,0 +1,47 @@
+server {
+        #listen 443 ssl;
+        #listen [::]:443;
+
+        root /root/may-there-always-be-sunshine.space/dist/public;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name may-there-always-be-sunshine.space www.may-there-always-be-sunshine.space;
+
+        # force https-redirects
+        #if ($scheme = http) {
+        #       return 301 https://$server_name$request_uri;
+        #}
+
+        location / {
+                try_files $uri $uri/ =404;
+                expires 7d;
+        }
+
+        location ~*  \.(jpg|jpeg|png|gif|ico|css|js|webp|mp4|woff|woff2|ttf)$ {
+                expires 365d;
+        }
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.may-there-always-be-sunshine.space/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.may-there-always-be-sunshine.space/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+server {
+    if ($host = www.may-there-always-be-sunshine.space) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = may-there-always-be-sunshine.space) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        listen [::]:80;
+
+        server_name may-there-always-be-sunshine.space www.may-there-always-be-sunshine.space;
+    return 404; # managed by Certbot
+}
